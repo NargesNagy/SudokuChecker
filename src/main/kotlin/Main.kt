@@ -6,3 +6,8 @@ fun main(args: Array<String>) {
     // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
     println("Program arguments: ${args.joinToString()}")
 }
+
+
+fun isValidSudoku(list: List<Any>) : Boolean{
+ return false
+}
