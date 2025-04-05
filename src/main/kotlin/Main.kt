@@ -17,6 +17,12 @@ fun main(args: Array<String>) {
 
 fun isValidSudoku(list: List<List<Any>>): Boolean {
 
+    val columnSize = list.size
+    list.forEach {
+        if (it.size != columnSize) return false
+    }
+
+
     list.forEach {
         if (!isValidRow(it)) return false
     }

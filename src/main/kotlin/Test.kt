@@ -26,6 +26,17 @@ fun main() {
     )
 
     test(
+        name = "when a sudoku size is not valid return false",
+        isValidSudoku(
+            listOf(
+                listOf('4', '5', '6'),
+                listOf('7', '8', '9')
+            )
+        ),
+        correctResult = false
+    )
+
+    test(
         name = "when a sudoku 3*3 char is repeated in the column return false",
         isValidSudoku(
             listOf(
