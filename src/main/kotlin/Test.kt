@@ -50,7 +50,7 @@ fun main() {
     )
 
     test(
-        name = "when a sudoku is valid return true",
+        name = "when a sudoku subBox is valid return false",
         isValidSudoku(
             listOf(
                 listOf('3', '2', '4', '1'),
@@ -59,7 +59,7 @@ fun main() {
                 listOf('4', '1', '3', '2')
             )
         ),
-        correctResult = true
+        correctResult = false
     )
 
     test(
@@ -89,7 +89,7 @@ fun main() {
     )
 
     test(
-        name = "when a sudoku is valid return true",
+        name = "when a sudoku subBox is not valid return false",
         isValidSudoku(
             listOf(
                 listOf('6', '1', '4', '3', '2', '5'),
@@ -100,7 +100,7 @@ fun main() {
                 listOf('5', '2', '1', '4', '6', '3')
             )
         ),
-        correctResult = true
+        correctResult = false
     )
 
     test(

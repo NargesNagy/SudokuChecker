@@ -1,12 +1,14 @@
+import kotlin.math.sqrt
+
 fun main(args: Array<String>) {
     println(
-        isValidSudoku(
+        isValidBox(
             listOf(
                 listOf('3', '2', '4', '1'),
-                listOf('2', '3', '1', '4'),
-                listOf('1', '4', '2', '3'),
+                listOf('5', '6', '1', '4'),
+                listOf('9', '4', '2', '3'),
                 listOf('4', '1', '3', '2')
-            )
+            ), 2
         )
     )
 
@@ -19,7 +21,8 @@ fun isValidSudoku(list: List<List<Any>>): Boolean {
         if (!isValidRow(it)) return false
     }
     if (!isValidColumns(list)) return false
-    return true
+    val squareRoot = sqrt(list.size.toDouble()).toInt()
+    return isValidBox(list, squareRoot)
 }
 
 
@@ -37,6 +40,24 @@ fun isValidColumns(list: List<List<Any>>): Boolean {
             columnList.add(i[j] as Char)
         }
         if (isDuplicated(columnList)) return false
+    }
+    return true
+}
+
+fun isValidBox(list: List<List<Any>>, boxSize: Int): Boolean{
+    for (row in list.indices step boxSize){ // start row
+        for (col in list.indices step boxSize){ // start col
+            val subBox = mutableListOf<Char>()
+            for (j in 0 until boxSize){
+                for (i in 0 until boxSize){
+                    val item = list[row+j][col+i]
+                    if (item != '-' &&  subBox.contains(item)) return false
+                    subBox.add(item as Char)
+                }
+
+            }
+        }
+
     }
     return true
 }
